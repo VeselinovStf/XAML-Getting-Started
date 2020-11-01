@@ -10,11 +10,19 @@
                        
     <Grid>
         <Button
-            Content="Add Customer"
             VerticalAlignment="Top"
             HorizontalAlignment="Left"
             Margin="10"
             Click="AddCustomerButton_ClickHandler"
-            />
+            >
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Symbol="AddFriend"/>
+                    <TextBlock 
+                        Text="Add Customer"
+                        Margin="5 0 0 0"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
     </Grid>
 </Page>
