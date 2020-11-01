@@ -25,11 +25,11 @@ namespace WiredBrainCoffee.CustomersApp
 
         private void MoveNavigation_Click(object sender, RoutedEventArgs e)
         {
-            var currentNavigationColumn = (int)movableMenuNavigation.GetValue(Grid.ColumnProperty);
+            var currentNavigationColumn = Grid.GetColumn(movableMenuNavigation);
 
             var newLocation = currentNavigationColumn == 0 ? 2 : 0;
 
-            movableMenuNavigation.SetValue(Grid.ColumnProperty, newLocation);
+            Grid.SetColumn(movableMenuNavigation,newLocation);
 
             var buttonSymbol = newLocation == 0 ? Symbol.Forward : Symbol.Back;
 
