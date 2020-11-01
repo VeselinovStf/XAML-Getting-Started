@@ -8,20 +8,92 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
-        <Button
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Margin="10"
-            Click="AddCustomerButton_ClickHandler"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal"
+                     Grid.ColumnSpan="2" Background="#F05A28">
+            <Image Source="Images/logo.png"
+                   Margin="7"
+                    Stretch="None"
+                    HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   />
+            <TextBlock 
+                Text="Coffee Customers"
+                FontSize="50"
+                Foreground="White"
+                FontWeight="ExtraBold"
+                VerticalAlignment="Center"/>
+            <TextBlock 
+                Text="Version 1.0"
+                Foreground="#333333"
+                VerticalAlignment="Center"
+                Margin="20 0 0 0"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1" 
+              >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Button
+                    Margin="10"           
             >
-            <Button.Content>
-                <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Symbol="AddFriend"/>
-                    <TextBlock 
-                        Text="Add Customer"
-                        Margin="5 0 0 0"/>
-                </StackPanel>
-            </Button.Content>
-        </Button>
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Forward"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button Margin="10"  
+                     Click="AddCustomerButton_ClickHandler">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="AddFriend"/>
+                            <TextBlock
+                                Text="Add"
+                                Margin="5 0 0 0"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button Margin="10"  >
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Delete"/>
+                            <TextBlock
+                                Text="Delete"
+                                Margin="5 0 0 0"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+           
+            
+            <ListView Grid.Row="1">
+                <ListViewItem>Tom</ListViewItem>
+                <ListViewItem>Julia</ListViewItem>
+                <ListViewItem>Annie</ListViewItem>
+            </ListView>
+        </Grid>
+
+        <StackPanel 
+            Grid.Row="1" 
+            Grid.Column="1"
+            Margin="10">
+            <TextBlock Text="First Name"/>
+            <TextBox />
+            <TextBlock Text="Last Name"/>
+            <TextBox />
+            <CheckBox Content="Is developer"/>
+        </StackPanel>
+        
     </Grid>
 </Page>
