@@ -80,10 +80,10 @@
             </StackPanel>
            
             
-            <ListView Grid.Row="1">
-                <ListViewItem>Tom</ListViewItem>
-                <ListViewItem>Julia</ListViewItem>
-                <ListViewItem>Annie</ListViewItem>
+            <ListView Grid.Row="1" x:Name="custemersMenuList"
+                      DisplayMemberPath="LastName"
+                      >
+            
             </ListView>
         </Grid>
 

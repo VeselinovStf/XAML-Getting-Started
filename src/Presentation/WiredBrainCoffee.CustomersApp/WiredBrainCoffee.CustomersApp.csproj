@@ -199,6 +199,16 @@
       <Version>6.2.10</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\WiredBrainCoffee.Data\WiredBrainCoffee.Data.csproj">
+      <Project>{44C3E461-F0D5-4056-A67A-DF73F437D23B}</Project>
+      <Name>WiredBrainCoffee.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\WiredBrainCoffee.Models\WiredBrainCoffee.Models.csproj">
+      <Project>{F2F396B9-28B4-439F-A41B-E08AFAD540B6}</Project>
+      <Name>WiredBrainCoffee.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
