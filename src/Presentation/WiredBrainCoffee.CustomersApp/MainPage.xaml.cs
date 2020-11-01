@@ -22,5 +22,19 @@ namespace WiredBrainCoffee.CustomersApp
             var messageDialog = new MessageDialog("Custommer Added");
             await messageDialog.ShowAsync();
         }
+
+        private void MoveNavigation_Click(object sender, RoutedEventArgs e)
+        {
+            var currentNavigationColumn = (int)movableMenuNavigation.GetValue(Grid.ColumnProperty);
+
+            var newLocation = currentNavigationColumn == 0 ? 2 : 0;
+
+            movableMenuNavigation.SetValue(Grid.ColumnProperty, newLocation);
+
+            var buttonSymbol = newLocation == 0 ? Symbol.Forward : Symbol.Back;
+
+            moveButtonIcon.Symbol = buttonSymbol;
+
+        }
     }
 }
