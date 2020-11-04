@@ -67,7 +67,8 @@
                         </StackPanel>
                     </Button.Content>
                 </Button>
-                <Button Margin="10"  >
+                <Button Margin="10" 
+                        Click="DeleteCustomerButton_ClickHandler">
                     <Button.Content>
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="Delete"/>

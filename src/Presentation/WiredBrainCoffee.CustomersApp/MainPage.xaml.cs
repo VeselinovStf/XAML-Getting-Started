@@ -46,10 +46,18 @@ namespace WiredBrainCoffee.CustomersApp
             }
         }
 
-        private async void AddCustomerButton_ClickHandler(object sender, RoutedEventArgs e)
+        private void AddCustomerButton_ClickHandler(object sender, RoutedEventArgs e)
         {
-            var messageDialog = new MessageDialog("Custommer Added");
-            await messageDialog.ShowAsync();
+            var newCustomer = new Customer() { FirstName = "New" };
+            custemersMenuList.Items.Add(newCustomer);
+            custemersMenuList.SelectedItem = newCustomer;
+        }
+
+        private void DeleteCustomerButton_ClickHandler(object sender, RoutedEventArgs e)
+        {
+            var cutomer = custemersMenuList.SelectedItem as Customer;
+
+            custemersMenuList.Items.Remove(cutomer);
         }
 
         private void MoveNavigation_Click(object sender, RoutedEventArgs e)
@@ -96,6 +104,7 @@ namespace WiredBrainCoffee.CustomersApp
                 customer.IsDeveloper = isDeveloperCheckBox.IsChecked.GetValueOrDefault();
             }
         }
+
 
     }
 }
