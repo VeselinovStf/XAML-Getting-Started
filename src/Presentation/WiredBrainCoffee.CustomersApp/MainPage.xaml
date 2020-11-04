@@ -81,7 +81,8 @@
            
             
             <ListView Grid.Row="1" x:Name="custemersMenuList"
-                      DisplayMemberPath="LastName"
+                      DisplayMemberPath="FirstName"
+                      SelectionChanged="CustomerListView_SelctionChange"
                       >
             
             </ListView>
@@ -91,11 +92,20 @@
             Grid.Row="1" 
             Grid.Column="1"
             Margin="10">
-            <TextBlock Text="First Name"/>
-            <TextBox />
-            <TextBlock Text="Last Name"/>
-            <TextBox />
-            <CheckBox Content="Is developer"/>
+
+            <TextBox  
+                Header="First Name"
+                x:Name="firstNameText"  
+                TextChanged="TextBox_TextChanged"
+                />
+            <TextBox  
+                Header="Last Name"
+                x:Name="lastNameText" 
+                TextChanged="TextBox_TextChanged"/>
+            <CheckBox Content="Is developer" x:Name="isDeveloperCheckBox"
+                      Checked="CheckBoxIsDeveloper_Handler"
+                      Unchecked="CheckBoxIsDeveloper_Handler" 
+                      />
         </StackPanel>
         
     </Grid>
