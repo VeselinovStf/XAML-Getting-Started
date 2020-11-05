@@ -77,34 +77,7 @@ namespace WiredBrainCoffee.CustomersApp
         {
             var customer = custemersMenuList.SelectedItem as Customer;
 
-            firstNameText.Text = customer?.FirstName ?? "";
-            lastNameText.Text = customer?.LastName ?? "";
-            isDeveloperCheckBox.IsChecked = customer?.IsDeveloper;
+            customerDetailsControl.Customer = customer;
         }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            UpdateCustomer();
-        }
-
-        private void CheckBoxIsDeveloper_Handler(object sender, RoutedEventArgs e)
-        {
-            UpdateCustomer();
-        }
-
-       
-        private void UpdateCustomer()
-        {
-            var customer = custemersMenuList.SelectedItem as Customer;
-
-            if (customer != null)
-            {
-                customer.FirstName = firstNameText.Text;
-                customer.LastName = lastNameText.Text;
-                customer.IsDeveloper = isDeveloperCheckBox.IsChecked.GetValueOrDefault();
-            }
-        }
-
-
     }
 }
