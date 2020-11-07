@@ -50,19 +50,7 @@ namespace WiredBrainCoffee.CustomersApp
             await ViewModel.LoadAsync();
         }
 
-        private void AddCustomerButton_ClickHandler(object sender, RoutedEventArgs e)
-        {
-            var newCustomer = new Customer() { FirstName = "New" };
-            custemersMenuList.Items.Add(newCustomer);
-            custemersMenuList.SelectedItem = newCustomer;
-        }
-
-        private void DeleteCustomerButton_ClickHandler(object sender, RoutedEventArgs e)
-        {
-            var cutomer = custemersMenuList.SelectedItem as Customer;
-
-            custemersMenuList.Items.Remove(cutomer);
-        }
+       
 
         private void MoveNavigation_Click(object sender, RoutedEventArgs e)
         {
