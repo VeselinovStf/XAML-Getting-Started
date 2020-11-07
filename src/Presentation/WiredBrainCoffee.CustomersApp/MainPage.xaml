@@ -38,7 +38,13 @@
                 VerticalAlignment="Center"
                 Margin="20 0 0 0"/>
         </StackPanel>
-
+        <Button 
+                Grid.Column="2"
+                VerticalAlignment="Top"
+                Margin="20"
+                CornerRadius="20"
+                Content="Toggle Theme"
+                Click="ButtonToggleTheme_Click"/>
         <Grid Grid.Row="1" 
                       x:Name="movableMenuNavigation"
               >
@@ -81,7 +87,7 @@
                 </Button>
             </StackPanel>
            
-            
+
             <ListView Grid.Row="1" x:Name="custemersMenuList"
                       DisplayMemberPath="FirstName"
                       SelectionChanged="CustomerListView_SelctionChange"

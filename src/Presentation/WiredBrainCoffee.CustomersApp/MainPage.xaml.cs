@@ -25,6 +25,8 @@ namespace WiredBrainCoffee.CustomersApp
             this.Loaded += MainPage_Loaded;
 
             App.Current.Suspending += App_Suspending;
+
+            this.RequestedTheme = App.Current.RequestedTheme == ApplicationTheme.Dark ? ElementTheme.Dark : ElementTheme.Light;
         }
 
         private async void App_Suspending(object sender, Windows.ApplicationModel.SuspendingEventArgs e)
@@ -32,6 +34,8 @@ namespace WiredBrainCoffee.CustomersApp
             var defferal = e.SuspendingOperation.GetDeferral();
             await _dbContext.SaveClientsAsync(custemersMenuList.Items.OfType<Customer>());
             defferal.Complete();
+
+           
         }
 
         private async void MainPage_Loaded(object sender, RoutedEventArgs e)
@@ -78,6 +82,12 @@ namespace WiredBrainCoffee.CustomersApp
             var customer = custemersMenuList.SelectedItem as Customer;
 
             customerDetailsControl.Customer = customer;
+        }
+
+        private void ButtonToggleTheme_Click(object sender, RoutedEventArgs e)
+        {
+            this.RequestedTheme = RequestedTheme == ElementTheme.Dark ?
+                ElementTheme.Light : ElementTheme.Dark;
         }
     }
 }

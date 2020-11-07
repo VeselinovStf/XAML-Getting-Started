@@ -13,7 +13,5 @@
             <SolidColorBrush x:Key="versionTextBrush" Color="#333333"/>
             <SolidColorBrush x:Key="logoTextBrush" Color="Black"/>
         </ResourceDictionary>
-       
     </ResourceDictionary.ThemeDictionaries>
-    
 </ResourceDictionary>
