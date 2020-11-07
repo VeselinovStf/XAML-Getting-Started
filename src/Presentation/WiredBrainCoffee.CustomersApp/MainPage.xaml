@@ -88,7 +88,9 @@
             </StackPanel>
            
 
-            <ListView Grid.Row="1" x:Name="custemersMenuList"
+            <ListView Grid.Row="1"
+                      ItemsSource="{Binding Path=Customers,Mode=OneWay}"
+                      x:Name="custemersMenuList"
                       DisplayMemberPath="FirstName"
                       >
             

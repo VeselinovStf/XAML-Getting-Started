@@ -4,6 +4,8 @@ using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using WiredBrainCoffee.CustomersApp.Controls;
+using WiredBrainCoffee.CustomersApp.ViewModels;
+using WiredBrainCoffee.CustomersApp.ViewModels.Abstraction;
 using WiredBrainCoffee.Data;
 using WiredBrainCoffee.Models;
 
@@ -16,12 +18,14 @@ namespace WiredBrainCoffee.CustomersApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private readonly WiredBrainCoffeeDbContext _dbContext;
+        public BaseViewModel ViewModels { get; }
 
         public MainPage()
         {
             this.InitializeComponent();
-            _dbContext = new WiredBrainCoffeeDbContext();
+
+            ViewModels = new MainPageViewModel(new WiredBrainCoffeeDbContext());
+            DataContext = ViewModels;
 
             this.Loaded += MainPage_Loaded;
 
@@ -33,22 +37,13 @@ namespace WiredBrainCoffee.CustomersApp
         private async void App_Suspending(object sender, Windows.ApplicationModel.SuspendingEventArgs e)
         {
             var defferal = e.SuspendingOperation.GetDeferral();
-            await _dbContext.SaveClientsAsync(custemersMenuList.Items.OfType<Customer>());
-            defferal.Complete();
-
-           
+            await ViewModels.SaveAsync();
+            defferal.Complete();        
         }
 
         private async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            custemersMenuList.Items.Clear();
-
-            var customers = await this._dbContext.LoadCustomersAsync();
-
-            foreach (var customer in customers)
-            {
-                custemersMenuList.Items.Add(customer);
-            }
+            await ViewModels.LoadAsync();
         }
 
         private void AddCustomerButton_ClickHandler(object sender, RoutedEventArgs e)
