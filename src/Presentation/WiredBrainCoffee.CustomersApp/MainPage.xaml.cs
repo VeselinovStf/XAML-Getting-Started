@@ -18,14 +18,16 @@ namespace WiredBrainCoffee.CustomersApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public BaseViewModel ViewModels { get; }
+        public MainPageViewModel ViewModel { get; }
 
         public MainPage()
         {
             this.InitializeComponent();
 
-            ViewModels = new MainPageViewModel(new WiredBrainCoffeeDbContext());
-            DataContext = ViewModels;
+            ViewModel = new MainPageViewModel(new WiredBrainCoffeeDbContext());
+            
+            //Works for {Binding } in WPF and UWP {Binding }
+            //DataContext = ViewModels;
 
             this.Loaded += MainPage_Loaded;
 
@@ -37,13 +39,13 @@ namespace WiredBrainCoffee.CustomersApp
         private async void App_Suspending(object sender, Windows.ApplicationModel.SuspendingEventArgs e)
         {
             var defferal = e.SuspendingOperation.GetDeferral();
-            await ViewModels.SaveAsync();
+            await ViewModel.SaveAsync();
             defferal.Complete();        
         }
 
         private async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            await ViewModels.LoadAsync();
+            await ViewModel.LoadAsync();
         }
 
         private void AddCustomerButton_ClickHandler(object sender, RoutedEventArgs e)

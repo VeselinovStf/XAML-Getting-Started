@@ -8,25 +8,22 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400"
-    x:Name="root">
+    >
 
     <StackPanel >
         <TextBox  
                 Header="First Name"
-                Text="{Binding ElementName=root,
-                                Path=Customer.FirstName, 
+                Text="{x:Bind Customer.FirstName,                               
                                 Mode=TwoWay,
                                 UpdateSourceTrigger=PropertyChanged}"
                 />
         <TextBox  
                 Header="Last Name"
-                        Text="{Binding ElementName=root,
-                                Path=Customer.LastName, 
+                        Text="{x:Bind Customer.LastName,
                                 Mode=TwoWay,
                                 UpdateSourceTrigger=PropertyChanged}"/>
         <CheckBox Content="Is developer" 
-                           IsChecked="{Binding ElementName=root,
-                                Path=Customer.IsDeveloper, 
+                           IsChecked="{x:Bind Customer.IsDeveloper, 
                                 Mode=TwoWay}"
                       />
     </StackPanel>

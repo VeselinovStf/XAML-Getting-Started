@@ -26,7 +26,29 @@ namespace WiredBrainCoffee.Data.LocalFileDatabase
             var customersList = new List<Customer>();
             if (storageFile == null)
             {
-                customersList = new List<Customer>()
+                customersList = GetHardCodedData();
+            }
+            else
+            {
+                var readData = await ReadStorage(storageFile);
+                if (readData == null)
+                {
+                    customersList = GetHardCodedData();
+                }
+                else if (readData.Count == 0)
+                {
+                    customersList = GetHardCodedData();
+                }
+
+            }
+
+
+            return customersList;
+        }
+
+        private static List<Customer> GetHardCodedData()
+        {
+            return new List<Customer>()
                 {
                     new Customer(){ FirstName = "John", LastName = "Dow", IsDeveloper = true},
                     new Customer(){ FirstName = "Jane", LastName = "Dow", IsDeveloper = true},
@@ -37,22 +59,19 @@ namespace WiredBrainCoffee.Data.LocalFileDatabase
                     new Customer(){ FirstName = "Pesho", LastName = "Goshov", IsDeveloper = true},
                     new Customer(){ FirstName = "Maria", LastName = "Asenova", IsDeveloper = true},
                 };
-            }
-            else
+        }
+
+        private async Task<List<Customer>> ReadStorage(StorageFile storageFile)
+        {
+            using (var stream = await storageFile.OpenAsync(FileAccessMode.Read))
             {
-                using (var stream = await storageFile.OpenAsync(FileAccessMode.Read))
+                using (var dataReader = new DataReader(stream))
                 {
-                    using (var dataReader = new DataReader(stream))
-                    {
-                        await dataReader.LoadAsync((uint)stream.Size);
-                        var json = dataReader.ReadString((uint)stream.Size);
-                        customersList = JsonConvert.DeserializeObject<List<Customer>>(json);
-                    }
+                    await dataReader.LoadAsync((uint)stream.Size);
+                    var json = dataReader.ReadString((uint)stream.Size);
+                    return JsonConvert.DeserializeObject<List<Customer>>(json);
                 }
             }
-
-
-            return customersList;
         }
 
         internal async Task SaveCustomersAsync(IEnumerable<Customer> clientsToSave)

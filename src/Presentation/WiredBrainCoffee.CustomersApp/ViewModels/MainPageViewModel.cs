@@ -3,10 +3,11 @@ using System.Threading.Tasks;
 using WiredBrainCoffee.CustomersApp.ViewModels.Abstraction;
 using WiredBrainCoffee.Data;
 using WiredBrainCoffee.Models;
+using WiredBrainCoffee.Models.Base;
 
 namespace WiredBrainCoffee.CustomersApp.ViewModels
 {
-    public class MainPageViewModel : BaseViewModel
+    public class MainPageViewModel : ObservableBase
     {
         private readonly WiredBrainCoffeeDbContext _dbContext;
 
@@ -27,13 +28,17 @@ namespace WiredBrainCoffee.CustomersApp.ViewModels
             get { return _selectedCustomer; }
             set 
             {
-                _selectedCustomer = value;
-                OnPropertyChange();
+                if (_selectedCustomer != value)
+                {
+                    _selectedCustomer = value;
+                    OnPropertyChange();
+                }
+               
             }
         }
 
 
-        public override async Task LoadAsync()
+        public async Task LoadAsync()
         {
             Customers.Clear();
 
@@ -45,7 +50,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModels
             }
         }
 
-        public override async Task SaveAsync()
+        public async Task SaveAsync()
         {
             await _dbContext.SaveClientsAsync(Customers);
         }

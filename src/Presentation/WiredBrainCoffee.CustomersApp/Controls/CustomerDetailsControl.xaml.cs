@@ -1,10 +1,12 @@
 ﻿using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Markup;
 using WiredBrainCoffee.Models;
 
 namespace WiredBrainCoffee.CustomersApp.Controls
 {
+    [ContentProperty(Name = nameof(Customer))]
     public sealed partial class CustomerDetailsControl : UserControl
     {
         public CustomerDetailsControl()

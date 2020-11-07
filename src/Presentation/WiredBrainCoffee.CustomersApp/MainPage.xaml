@@ -5,7 +5,7 @@
     xmlns:local="using:WiredBrainCoffee.CustomersApp"
     xmlns:controls="using:WiredBrainCoffee.CustomersApp.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:model="using:WiredBrainCoffee.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
@@ -89,15 +89,15 @@
            
 
             <ListView Grid.Row="1"
-                      ItemsSource="{Binding Path=Customers,Mode=OneWay}"
-                      SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}"
+                      ItemsSource="{x:Bind ViewModel.Customers,Mode=OneWay}"
+                      SelectedItem="{x:Bind ViewModel.SelectedCustomer, Mode=TwoWay}"
                       x:Name="custemersMenuList"
                       >
                 <ListView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate x:DataType="model:Customer">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding FirstName}"/>
-                            <TextBlock Text="{Binding LastName}"
+                            <TextBlock Text="{x:Bind FirstName,Mode=OneWay}"/>
+                            <TextBlock Text="{x:Bind LastName,Mode=OneWay}"
                                        Margin="5 0 0 0"/>
                         </StackPanel>
                     </DataTemplate>
@@ -110,8 +110,7 @@
             Grid.Row="1" 
             Grid.Column="1"
             Margin="10" 
-            Customer="{
-                Binding SelectedCustomer,Mode=TwoWay}"/>
+            Customer="{x:Bind ViewModel.SelectedCustomer,Mode=OneWay}"/>
 
     </Grid>
 </Page>
