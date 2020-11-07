@@ -19,7 +19,7 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Horizontal"
-                     Grid.ColumnSpan="3" Background="#F05A28">
+                     Grid.ColumnSpan="3" Background="{ThemeResource headerBackground}">
             <Image Source="Images/logo.png"
                    Margin="7"
                     Stretch="None"
@@ -29,12 +29,12 @@
             <TextBlock 
                 Text="Coffee Customers"
                 FontSize="50"
-                Foreground="White"
+                Foreground="{ThemeResource logoTextBrush}"
                 FontWeight="ExtraBold"
                 VerticalAlignment="Center"/>
             <TextBlock 
                 Text="Version 1.0"
-                Foreground="#333333"
+                Foreground="{ThemeResource versionTextBrush}"
                 VerticalAlignment="Center"
                 Margin="20 0 0 0"/>
         </StackPanel>
