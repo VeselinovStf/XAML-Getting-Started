@@ -90,6 +90,7 @@
 
             <ListView Grid.Row="1"
                       ItemsSource="{Binding Path=Customers,Mode=OneWay}"
+                      SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}"
                       x:Name="custemersMenuList"
                       DisplayMemberPath="FirstName"
                       >
@@ -102,9 +103,7 @@
             Grid.Column="1"
             Margin="10" 
             Customer="{
-                Binding ElementName=custemersMenuList,
-                Path=SelectedItem,
-                Mode=OneWay}"/>
+                Binding SelectedCustomer,Mode=TwoWay}"/>
 
     </Grid>
 </Page>

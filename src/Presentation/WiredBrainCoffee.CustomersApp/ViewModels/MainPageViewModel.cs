@@ -20,6 +20,19 @@ namespace WiredBrainCoffee.CustomersApp.ViewModels
             Customers = new ObservableCollection<Customer>();
         }
 
+        private Customer _selectedCustomer;
+
+        public Customer SelectedCustomer
+        {
+            get { return _selectedCustomer; }
+            set 
+            {
+                _selectedCustomer = value;
+                OnPropertyChange();
+            }
+        }
+
+
         public override async Task LoadAsync()
         {
             Customers.Clear();
