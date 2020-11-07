@@ -99,6 +99,8 @@
                             <TextBlock Text="{x:Bind FirstName,Mode=OneWay}"/>
                             <TextBlock Text="{x:Bind LastName,Mode=OneWay}"
                                        Margin="5 0 0 0"/>
+                            <TextBlock Text="(Developer)" Margin="5 0 0 0" Opacity="0.5"
+                                       Visibility="{x:Bind IsDeveloper, Mode=OneWay}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -110,7 +112,8 @@
             Grid.Row="1" 
             Grid.Column="1"
             Margin="10" 
-            Customer="{x:Bind ViewModel.SelectedCustomer,Mode=OneWay}"/>
+            Customer="{x:Bind ViewModel.SelectedCustomer,Mode=OneWay}"
+            Visibility="{x:Bind ViewModel.IsCustomerSelected, Mode=OneWay}"/>
 
     </Grid>
 </Page>

@@ -39,7 +39,9 @@ namespace WiredBrainCoffee.CustomersApp
         private async void App_Suspending(object sender, Windows.ApplicationModel.SuspendingEventArgs e)
         {
             var defferal = e.SuspendingOperation.GetDeferral();
+
             await ViewModel.SaveAsync();
+
             defferal.Complete();        
         }
 

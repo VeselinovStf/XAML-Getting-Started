@@ -39,7 +39,10 @@ namespace WiredBrainCoffee.Data.LocalFileDatabase
                 {
                     customersList = GetHardCodedData();
                 }
-
+                else
+                {
+                    customersList = readData;
+                }
             }
 
 

@@ -32,11 +32,13 @@ namespace WiredBrainCoffee.CustomersApp.ViewModels
                 {
                     _selectedCustomer = value;
                     OnPropertyChange();
+                    OnPropertyChange(nameof(IsCustomerSelected));
                 }
                
             }
         }
 
+        public bool IsCustomerSelected => SelectedCustomer != null;
 
         public async Task LoadAsync()
         {
