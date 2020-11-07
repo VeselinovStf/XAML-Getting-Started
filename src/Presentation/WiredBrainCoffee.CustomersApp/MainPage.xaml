@@ -90,7 +90,6 @@
 
             <ListView Grid.Row="1" x:Name="custemersMenuList"
                       DisplayMemberPath="FirstName"
-                      SelectionChanged="CustomerListView_SelctionChange"
                       >
             
             </ListView>
@@ -100,7 +99,10 @@
             Grid.Row="1" 
             Grid.Column="1"
             Margin="10" 
-            x:Name="customerDetailsControl"/>
+            Customer="{
+                Binding ElementName=custemersMenuList,
+                Path=SelectedItem,
+                Mode=OneWay}"/>
 
     </Grid>
 </Page>

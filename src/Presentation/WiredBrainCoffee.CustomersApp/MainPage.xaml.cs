@@ -3,6 +3,7 @@ using System.Linq;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using WiredBrainCoffee.CustomersApp.Controls;
 using WiredBrainCoffee.Data;
 using WiredBrainCoffee.Models;
 
@@ -76,12 +77,6 @@ namespace WiredBrainCoffee.CustomersApp
 
             moveButtonIcon.Symbol = buttonSymbol;
 
-        }
-        private void CustomerListView_SelctionChange(object sender, SelectionChangedEventArgs e)
-        {
-            var customer = custemersMenuList.SelectedItem as Customer;
-
-            customerDetailsControl.Customer = customer;
         }
 
         private void ButtonToggleTheme_Click(object sender, RoutedEventArgs e)
