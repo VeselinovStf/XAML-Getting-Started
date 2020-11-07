@@ -92,8 +92,16 @@
                       ItemsSource="{Binding Path=Customers,Mode=OneWay}"
                       SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}"
                       x:Name="custemersMenuList"
-                      DisplayMemberPath="FirstName"
                       >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding FirstName}"/>
+                            <TextBlock Text="{Binding LastName}"
+                                       Margin="5 0 0 0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             
             </ListView>
         </Grid>
