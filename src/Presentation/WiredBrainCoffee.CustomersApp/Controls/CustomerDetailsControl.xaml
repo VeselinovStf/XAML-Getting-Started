@@ -9,20 +9,29 @@
     d:DesignHeight="300"
     d:DesignWidth="400"
     >
-
+    <UserControl.Resources>
+        <Style x:Key="textBoxStyle" TargetType="TextBox"
+               BasedOn="{StaticResource userControlTextBoxStyle}">
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </UserControl.Resources>
     <StackPanel >
         <TextBox  
                 Header="First Name"
+                Style="{StaticResource textBoxStyle}"
                 Text="{x:Bind Customer.FirstName,                               
                                 Mode=TwoWay,
                                 UpdateSourceTrigger=PropertyChanged}"
                 />
         <TextBox  
                 Header="Last Name"
+                        Style="{StaticResource textBoxStyle}"
                         Text="{x:Bind Customer.LastName,
                                 Mode=TwoWay,
                                 UpdateSourceTrigger=PropertyChanged}"/>
         <CheckBox Content="Is developer" 
+                           Margin="10"
                            IsChecked="{x:Bind Customer.IsDeveloper, 
                                 Mode=TwoWay}"
                       />
