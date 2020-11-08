@@ -28,3 +28,7 @@ Windows desktop applications with UWP and WPF."
 	- Use Styles and Templates
 
 - Debug XAML application VS tools
+
+## Status
+
+- Completed
