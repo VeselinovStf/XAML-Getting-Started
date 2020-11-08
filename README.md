@@ -1,7 +1,7 @@
 # XAML-Getting-Started
 Project for "XAML : Getting Started" Pluralsight Course
 
-
+![application presentation](https://github.com/VeselinovStf/XAML-Getting-Started/blob/main/img/demo.bmp)
 
 "At the core of building Windows desktop applications with UWP and WPF is a 
 thorough knowledge of the Extensible Application Markup Language (XAML). 
